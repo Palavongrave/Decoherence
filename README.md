@@ -118,6 +118,19 @@ scales changed). Projects saved with the first (reverb-network) version of the e
   through JUCE's VST3 hosting code and checks sample rates 44.1-192 kHz, block sizes
   1-4096, automation, state save/restore, programs, bypass and the editor.
 
+## Marketing images
+
+`marketing\` holds the product description (`description.md`), a 2x render of the interface
+(`plugin-ui@2x.png`) and a 1280x720 YouTube thumbnail (`youtube-thumbnail.png`). The images
+are drawn by `tools\Thumbnail.cpp`, which runs the real editor with audio playing through the
+"Endless Drone" preset. To redraw them after a UI change, run from a VS x64 developer prompt:
+
+```
+cmake -S . -B build-tools -G Ninja -DCMAKE_BUILD_TYPE=Release -DCW_BUILD_TOOLS=ON -DCW_BUILD_TESTS=OFF
+cmake --build build-tools --target DecoherenceThumbnail
+build-tools\DecoherenceThumbnail_artefacts\Release\DecoherenceThumbnail.exe marketing
+```
+
 ## Project layout
 
 ```
@@ -128,6 +141,8 @@ Source/PluginEditor.*        window layout
 Source/ui/                   look and feel and custom widgets
 Source/Presets.h             factory presets
 tests/                       engine test and VST3 host test
+tools/Thumbnail.cpp          renders the marketing images
+marketing/                   description, UI render, YouTube thumbnail
 JUCE/                        JUCE 9.0.5
 ```
 

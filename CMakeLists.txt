@@ -67,3 +67,24 @@ if(CW_BUILD_TESTS)
         juce::juce_gui_basics
         juce::juce_recommended_config_flags)
 endif()
+
+# Marketing helper: renders the live editor and a YouTube thumbnail (tools\Thumbnail.cpp)
+option(CW_BUILD_TOOLS "Build the thumbnail/snapshot tool" OFF)
+if(CW_BUILD_TOOLS)
+    juce_add_console_app(DecoherenceThumbnail PRODUCT_NAME "DecoherenceThumbnail")
+    target_sources(DecoherenceThumbnail PRIVATE
+        tools/Thumbnail.cpp
+        Source/PluginProcessor.cpp
+        Source/PluginEditor.cpp
+        Source/dsp/CascadeEngine.cpp
+        Source/ui/WaterfallLookAndFeel.cpp
+        Source/ui/Widgets.cpp)
+    target_compile_definitions(DecoherenceThumbnail PRIVATE
+        JucePlugin_Name="Decoherence"
+        JUCE_MODAL_LOOPS_PERMITTED=1
+        JUCE_WEB_BROWSER=0
+        JUCE_USE_CURL=0)
+    target_link_libraries(DecoherenceThumbnail PRIVATE
+        juce::juce_audio_utils
+        juce::juce_recommended_config_flags)
+endif()
