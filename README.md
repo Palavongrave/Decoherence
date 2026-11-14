@@ -1,4 +1,5 @@
-# Decoherence
+[vibecoded - all credit goes to Claude]
+# Decoherence 
 
 A sound-densification effect for drones, ambient beds and soundscapes. Every sound you feed it is
 repeated by a feedback delay and spread into up to 6561 overlapping copies over several seconds,
