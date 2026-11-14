@@ -1,4 +1,5 @@
-[vibecoded - all credit goes to Claude]
+##![vibecoded] - all credit goes to Claude
+
 # Decoherence 
 
 A sound-densification effect for drones, ambient beds and soundscapes. Every sound you feed it is
